@@ -33,10 +33,10 @@
 			background-color:white;
 			color:#4DB6AC;
 			border-radius:25px;
-			height:10vh;
+			height:6.5vh;
 			width:20vw;
 			font-family: "Comic Sans MS", cursive, sans-serif;
-			font-size:3.5vh;
+			font-size:3vw;
 		}
 
 		#leaderboard button:hover,#predictions button:hover{
