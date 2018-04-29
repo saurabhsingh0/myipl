@@ -8,7 +8,7 @@
 <body>
   <div id="container">
     <div>
-        <div class="team1 team"><a href="#"><img src="/teamLogo/srh.png"></a></div><span>VS</span><div class="team2 team"><a href="#"><img src="srh.png"></a></div>
+        <div class="team1 team"><a href="#"><img src="srh.png"></a></div><span>VS</span><div class="team2 team"><a href="#"><img src="srh.png"></a></div>
     </div>
     <div>
         <div class="team1 team"><a href="#"><img src="srh.png"></a></div><span>VS</span><div class="team2 team"><a href="#"><img src="srh.png"></a></div>
