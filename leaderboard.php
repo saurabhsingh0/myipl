@@ -9,11 +9,11 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<table id="predictionTable" class="table table-striped">
+	<table id="leaderboardTable" class="table table-striped">
 		<tr>
-			<td><bold><strong>Player</strong></bold></td>
-			<td><bold><strong>Match1</strong></bold></td>
-			<td><strong><bold>Match2</bold></strong></td>
+			<td><bold><strong>Rank</strong></bold></td>
+			<td><bold><strong>Username</strong></bold></td>
+			<td><strong><bold>Points</bold></strong></td>
 		</tr>
 	</table>
 
@@ -23,18 +23,18 @@
 	$(document).ready(function(){
 		$.ajax({
 			type: 'GET',
-			url: "https://myipl-199419.appspot.com/player/predictions/saurabhsingh",
+			url: "https://myipl-199419.appspot.com/player/leaderboard/saurabhsingh",
 			success: function(data){
-				var predictions=data.predictions;
+				var leaderboard=data.leaderBoardDetails;
 				var table_row='';
-				$.each(predictions, function(key, value){
+				$.each(leaderboard, function(key, value){
 					table_row += '<tr>';
+					table_row += '<td>'+value.rank+'</td>';
 					table_row += '<td>'+value.userId+'</td>';
-					table_row += '<td>'+value.match1+'</td>';
-					table_row += '<td>'+value.match2+'</td>';
+					table_row += '<td>'+value.points+'</td>';
 					table_row += '</tr>';
 				});
-				$('#predictionTable').append(table_row);
+				$('#leaderboardTable').append(table_row);
 			}
 		});
 	});

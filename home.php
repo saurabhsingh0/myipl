@@ -48,12 +48,12 @@
 </head>
 <body>
 	<div id="leaderboard">
-		<button>Leaderboard</button>
+		<button id="leaderboardButton">Leaderboard</button>
 	</div>
 	<br>
 	<br>
 	<div id="predictions">
-		<button>Predictions</button>
+		<button id="predictionButton">Predictions</button>
 	</div>
 	<div id="givePredictions">
 		<h3>Your Predictions</h3>
@@ -99,4 +99,14 @@
 			}
 		})
 	});
+</script>
+<script type="text/javascript">
+    document.getElementById("leaderboardButton").onclick = function () {
+        location.href = "leaderboard.php";
+    };
+</script>
+<script type="text/javascript">
+    document.getElementById("predictionButton").onclick = function () {
+        location.href = "predictions.php";
+    };
 </script>
