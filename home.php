@@ -4,7 +4,7 @@
 	<title>Home</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<style type="text/css">
-		#team1{
+	/*	#team1{
 			width: 50%;
 			height: 50%;
 			background-image: url("srh.png");
@@ -13,6 +13,36 @@
 			width: 100%;
 			height: 200px;
 			background-image: url("srh.png");
+		}*/
+		body{
+			min-height:100%;
+			min-width:100%;
+			text-align:center; 
+		}
+		.team1,.team2{
+			display: inline-block;
+			width:40%;
+
+		}
+		img{
+			max-height:40vh;
+			width:20vw;
+		}
+		#leaderboard button,#predictions button{
+			border-color:#4DB6AC;
+			background-color:white;
+			color:#4DB6AC;
+			border-radius:25px;
+			height:10vh;
+			width:20vw;
+			font-family: "Comic Sans MS", cursive, sans-serif;
+			font-size:3.5vh;
+		}
+
+		#leaderboard button:hover,#predictions button:hover{
+			cursor: pointer;
+			background-color: #4DB6AC;
+			color:white;
 		}
 	</style>
 </head>
@@ -20,16 +50,14 @@
 	<div id="leaderboard">
 		<button>Leaderboard</button>
 	</div>
+	<br>
+	<br>
 	<div id="predictions">
 		<button>Predictions</button>
 	</div>
 	<div id="givePredictions">
 		<h3>Your Predictions</h3>
-		<ul id="displayTeams">
-			<li>
-				<button id="team1"></button> <strong>VS</strong> <button id="team2"></button>
-			</li>
-		</ul>
+		
 	</div>
 </body>
 </html>
@@ -48,7 +76,7 @@
 				success: function(data) {
 					//console.log(data.scheduler);
 					var schedule=data.scheduler;
-					//console.log(schedule);
+					console.log(schedule);
 					for(var i in schedule){
 						//console.log(schedule[i].date);
 						var currentDate=schedule[i].date;
@@ -59,7 +87,11 @@
 							console.log("current date  " +currentDate);
 							team1=schedule[i].match1;
 							team2=schedule[i].match2;
-							console.log(team1 +" VS " +team2)
+							console.log(team1 +" VS " +team2);
+							team1=team1.toLowerCase();
+							team2=team2.toLowerCase();
+							var teamContainer=document.getElementById("givePredictions");
+							teamContainer.innerHTML+='<div class="team-logo"><div class="team1"><a href="#"><img src="teamLogo/'+team1+'.png" /></a></div><span><b>VS</b></span><div class="team2"><a href="#"><img src="teamLogo/'+team2+'.png" /></a></div></div><br><br>';
 						}
 					}
 			},
