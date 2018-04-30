@@ -68,7 +68,7 @@
 			url : 'http://api.timezonedb.com/v2/get-time-zone?key=JEXI0R6B5SQL&format=json&by=zone&zone=Asia/Kolkata',
 			success : function(data){
 				var date=data.formatted.split(" ")[0];
-				console.log("Date is  " +date);
+				//console.log("Date is  " +date);
 				$.ajax({
 				type: 'GET',
 				url : 'https://myipl-199419.appspot.com/player/scheduler',
@@ -76,7 +76,7 @@
 				success: function(data) {
 					//console.log(data.scheduler);
 					var schedule=data.scheduler;
-					console.log(schedule);
+					//console.log(schedule);
 					for(var i in schedule){
 						//console.log(schedule[i].date);
 						var currentDate=schedule[i].date;
@@ -84,10 +84,10 @@
 						var n=date.localeCompare(currentDate);
 						//console.log(n)
 						if(n==0){
-							console.log("current date  " +currentDate);
+							//console.log("current date  " +currentDate);
 							team1=schedule[i].match1;
 							team2=schedule[i].match2;
-							console.log(team1 +" VS " +team2);
+							//console.log(team1 +" VS " +team2);
 							team1=team1.toLowerCase();
 							team2=team2.toLowerCase();
 							var teamContainer=document.getElementById("givePredictions");
