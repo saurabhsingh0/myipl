@@ -36,7 +36,7 @@
 			height:6.5vh;
 			width:20vw;
 			font-family: "Comic Sans MS", cursive, sans-serif;
-			font-size:3vw;
+			font-size:2vw;
 		}
 
 		#leaderboard button:hover,#predictions button:hover{
