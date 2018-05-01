@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	//echo($_SESSION['login_user']);
+	if(empty($_SESSION['login_user'])){
+		header("location: index.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,6 +66,8 @@
 		<h3>Your Predictions</h3>
 		
 	</div>
+
+	<b id="logout"><a href="logout.php">Log Out</a></b>
 </body>
 </html>
 <script type="text/javascript">
@@ -83,7 +92,7 @@
 						//console.log("curent date " +currentDate);
 						var n=date.localeCompare(currentDate);
 						//console.log(n)
-						if(n==0){
+						if(n==0){ 
 							//console.log("current date  " +currentDate);
 							team1=schedule[i].match1;
 							team2=schedule[i].match2;
@@ -91,13 +100,17 @@
 							team1=team1.toLowerCase();
 							team2=team2.toLowerCase();
 							var teamContainer=document.getElementById("givePredictions");
-							teamContainer.innerHTML+='<div class="team-logo"><div class="team1"><a href="#"><img src="teamLogo/'+team1+'.png" /></a></div><span><b>VS</b></span><div class="team2"><a href="#"><img src="teamLogo/'+team2+'.png" /></a></div></div><br><br>';
+							teamContainer.innerHTML+='<div class="team-logo"><div class="team1" id="teamOne"><a href="#"><img src="teamLogo/'+team1+'.png" /></a></div><span><storng><b>VS</b></strong></span><div class="team2" id="teamTwo"><a href="#"><img src="teamLogo/'+team2+'.png" /></a></div></div><br><br>';
 						}
 					}
-			},
+			}
 		});
 			}
-		})
+		});
+		$('#teamOne').click(function(){
+			console.log("clicked");
+		});
+
 	});
 </script>
 <script type="text/javascript">

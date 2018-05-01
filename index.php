@@ -1,14 +1,14 @@
 <?php
 include('login.php'); // Includes Login Script
-if(isset($_SESSION['login_user'])){
-header("location: profile.php");
+if(!empty($_SESSION['login_user'])){
+	header("location: home.php");
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Login Form in PHP with Session</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<link href="stylelogin.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div id="main">

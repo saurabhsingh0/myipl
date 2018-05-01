@@ -10,29 +10,28 @@ else
 // Define $username and $password
 $username=$_POST['username'];
 $password=$_POST['password'];
-// Establishing Connection with Server by passing server_name, user_id and password as a parameter
-$connection = mysqli_connect("localhost", "root", "", "company");
+// Establishing Connection with Server by passing server_name, user_id and password and databasename as a parameter
+$conn = mysqli_connect("localhost", "root", "", "myipl");
 // To protect MySQL injection for Security purpose
 $username = stripslashes($username);
 $password = stripslashes($password);
-//$username = mysqli_real_escape_string($username);
-//$password = mysqli_real_escape_string($password);
-// Selecting Database
-//$db = mysql_select_db("company", $connection);
+
+//echo $username ."    "  .$password;
 // SQL query to fetch information of registerd users and finds user match.
-include 'connection.php';
-$sql="select * from `login` where `password`='$password' AND `username`='$username'";
+//include 'connection.php';
+$sql="select * from `users` where `password`='$password' AND `userID`='$username'";
 $result=mysqli_query($conn,$sql);
 $rows=mysqli_fetch_assoc($result);
 print_r($rows);
 $rowsofresult = mysqli_num_rows($result);
 if ($rowsofresult == 1) {
+	echo "In if statement";
 $_SESSION['login_user']=$username; // Initializing Session
-header("location: profile.php"); // Redirecting To Other Page
+header("location: home.php"); // Redirecting To Other Page
 } else {
 $error = "Username or Password is invalid";
 }
-mysqli_close($connection); // Closing Connection
+mysqli_close($conn); // Closing Connection
 }
 }
 ?>
