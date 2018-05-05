@@ -39,7 +39,7 @@
 
 <script type="text/javascript">
 	
-	var userId="Bat";
+	var userId="BAT";
 	$(document).ready(function(){
 
 		$.ajax({
@@ -95,6 +95,15 @@
 			}
 		});
 		$(document).on("click",".teamName1",function(){
+			$.ajax({
+				type:'GET',
+				url:'https://myipl-199419.appspot.com/player/predictions/saurabhsingh',
+				dataType:'json',
+				success: function(data){
+					var prediction=data.predictions;
+					console.log(prediction);
+				}
+			});
 			var selectedTeam1= $(this).attr('data-team');
 			//console.log(selectedTeam1);
 			var predictionInfo={"userid":userId,"match1":selectedTeam1,"match2":null};
