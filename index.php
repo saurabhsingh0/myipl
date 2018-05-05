@@ -12,7 +12,7 @@ if(!empty($_SESSION['login_user'])){
 </head>
 <body>
 <div id="main">
-<h1>PHP Login Session Example</h1>
+<h1>MY IPL</h1>
 <div id="login">
 <h2>Login Form</h2>
 <form action="" method="POST">

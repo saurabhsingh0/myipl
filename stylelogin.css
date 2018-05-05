@@ -3,9 +3,10 @@
 CSS Settings For HTML Div ExactCenter
 ------------------------------------------------*/
 #main {
-width:960px;
-margin:50px auto;
-font-family:raleway
+width:80%;
+margin:0 auto;
+font-family:raleway;
+text-align: center;
 }
 span {
 color:red
@@ -24,13 +25,13 @@ margin:10px -40px;
 margin-bottom:30px
 }
 #login {
-width:300px;
-float:left;
+width: 60%;
 border-radius:10px;
 font-family:raleway;
 border:2px solid #ccc;
 padding:10px 40px 25px;
-margin-top:70px
+/*margin-top:70px;*/
+margin: 0 auto;
 }
 input[type=text],input[type=password] {
 width:99.5%;
