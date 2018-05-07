@@ -52,7 +52,8 @@
 
 <script type="text/javascript">
 	
-	var userId="<?php echo($_SESSION['login_user']); ?>";
+	//var userId="<?php echo($_SESSION['login_user']); ?>";
+	var userId="Pru"
 	console.log("user is " +userId);
 	var count=0;
 	var selectedTeam1=null,selectedTeam2=null;
@@ -69,17 +70,17 @@
 				var hours=parseInt(time[0]);
 				var min=parseInt(time[1]);
 				//console.log("hours is " +hours +" min is " +min +"    "  +(hours+min));
-				if(hours>=14){
+				if(hours>=14 && false){
 					$('#expired').css({
 						"display":"block"
 					});
 				}
-				else if(hours>=0 && hours<=2) {
-					$('#start').css({
-						"display":"block"
-					});
-				}
-				else {
+				// else if(hours>=0 && hours<=2) {
+				// 	$('#start').css({
+				// 		"display":"block"
+				// 	});
+				// }
+				else if(true) {
 					$.ajax({
 						type: 'GET',
 						url: 'https://myipl-199419.appspot.com/player/scheduler',
@@ -146,8 +147,20 @@
 			if(match1==null){
 				selectedTeam1= $(this).attr('data-team');
 				//console.log(selectedTeam1);
-				predictionInfo={"userid":userId,"match1":selectedTeam1,"match2":null};
-				console.log(predictionInfo);
+				predictionInfo={"userid":userId,"match1":selectedTeam1,};
+				//console.log(predictionInfo);
+				$.ajax({
+					type:'POST',
+					data: JSON.stringify(predictionInfo),
+					contentType: "application/json; charset=utf-8",
+					url: 'https://myipl-199419.appspot.com/player/prediction',
+					traditional: true,
+					dataType:'json',
+					success: function(data){
+						console.log(data);
+						console.log(predictionInfo);
+					}
+				});
 			}
 			else{
 				alert("Predictions already submitted");
@@ -157,12 +170,32 @@
 			if(match2==null){
 				selectedTeam2= $(this).attr('data-team');
 				//console.log(selectedTeam1);
-				predictionInfo={"userid":userId,"match1":selectedTeam1,"match2":selectedTeam2};
-				console.log(predictionInfo);
+				predictionInfo={"userid":userId,"match2":selectedTeam2};
+				//console.log(predictionInfo);
+				$.ajax({
+					type:'POST',
+					data: predictionInfo,
+					url: 'https://myipl-199419.appspot.com/player/prediction',
+					dataType:'json',
+					success: function(data){
+						console.log(data);
+						console.log(predictionInfo);
+					}
+				});
 			}
 			else{
 				alert("Predictions already submitted");
 			}
 		});
 	});
+</script>
+<script type="text/javascript">
+    document.getElementById("leaderboardButton").onclick = function () {
+        location.href = "leaderboard.php";
+    };
+</script>
+<script type="text/javascript">
+    document.getElementById("predictionButton").onclick = function () {
+        location.href = "predictions.php";
+    };
 </script>
